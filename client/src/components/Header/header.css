@@ -1,0 +1,60 @@
+nav {
+    margin: 0;
+    padding: .2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+}
+
+nav h1{
+   text-align: start;
+   
+}
+
+nav h1 , .login-a , .logout-a{
+    width: 25%;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.nav-content-container {
+   
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.login-a , .logout-a{
+   /* width: 15%; */
+
+    color: white;
+    text-align: center;
+    border-radius: .5rem;
+    border: 1px solid white;
+    padding: .3rem .2rem;    
+}
+
+.logout-a{
+    font-size: .5rem;
+    background-color: red;
+    font-weight: bolder;
+    
+}
+
+.nav-content-container a{
+    font-size: .7rem;
+}
+
+
+a{
+    color: white;
+    opacity: .8;
+}
+
+a:hover{
+    cursor: pointer;
+    opacity: 1;
+}

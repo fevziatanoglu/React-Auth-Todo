@@ -1,12 +1,19 @@
-main {
+.main {
+
+    background-color: white;
+
+    color: #FF4742;
+    font-size: .7rem;
+
     z-index: 10;
     /* size */
-    height: 70vh;
-    width: 25vw;
-    padding: 1rem 0;
-    
+    height: 50vh;
+    width: 50vw;
+    /* padding: 1rem 0; */
+    padding: 0;
+
     /* color */
-    background: rgb(18, 6, 94);
+    
     /* center */
     position: fixed;
     top: 50%;
@@ -16,122 +23,187 @@ main {
     border-radius: 1rem;
     border: .1px solid var(--white-100);
 
-    /* flex box */
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+
+.slider {
+
+    /* background: rgb(255,71,66);
+    background: linear-gradient(90deg, rgba(255,71,66,1) 0%, rgba(255,94,94,1) 51%, rgba(255,71,66,1) 100%); */
+
+    color: white;
+    background: #FF4742;
+
+    height: 100%;
+    width: 50%;
+    transition: 0.5s;
+    top: 50%;
+    left: 50%;
+    
+
+    position: fixed;
+    z-index: 10;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    overflow: hidden;
+
+}
+
+.slider p{
+    font-weight: 600;
+}
+
+.slider-left {
+    transform: translate(-100%, -50%);
+    border-radius: 1rem 0 0 1rem;
+}
+
+.slider-right {
+    transform: translate(0%, -50%);
+    border-radius: 0 1rem 1rem 0;
+
+}
+
+
+
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 4rem; */
-    align-items: center;
-
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
     gap: 1rem;
-    
+
     width: 75%;
     height: 70%;
-  
+
+    /* background: blue; */
 }
 
-input{
+input {
     width: 85%;
     padding: .4rem;
     border-radius: .4rem;
-    background-color: rgb(71, 56, 125);
-    color: white;
-    padding: .5rem;
-    font-size: .5rem;
-
-    border: 1px solid white;
-}
-
-button{
-    color: white;
-    width: 85%;
-    background: rgb(195, 123, 255);
-    /* width: 50%; */
-    opacity: .9;
-    border-radius: .5rem;
-    border: 2px solid white;
-    padding: .1rem .5rem;
-}
-
-button:hover{
-    cursor: pointer;
-    opacity: 1;
-}
-
-.text-container{
-
-    width: 75%;
-    height: 30%;
-}
-
-h1 , p{
     
-    /* background: yellow; */
-    text-align: start;
-    margin: 0.1rem;
+    color: #FF4742;
+    font-weight: 600;
+    padding: .5rem;
 
-    /* font-size: 2rem; */
-    font-weight: bolder;
-    color: white;
-}
 
-h1{
-    font-size: 1.5rem;
-}
-
-p{
-     font-size: .5rem
+    border: 4px solid #FF4742;
 }
 
 
-.change-form-text{
-    /* background-color: red; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: .5rem;
-    font-weight: lighter;
-    width: 110%;
-    gap: .2rem;
-}
 
-.change-form-text a{
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    text-decoration:underline;
-}
 
-.error-message{
+.error-message {
     text-align: center;
+    font-weight: 800;
     color: red;
 }
 
 
 
+.btn {
+    width: 85%;
+    cursor: pointer;
+    font-weight: 800;
+    outline: 0;
+    padding: .7rem .5rem;
+    border-radius: 6px;
+}
 
+.submit-btn {
 
-
-
-
-
-
-
-@media screen and (max-width:600px) {
-
-  main{
-    height: 40vh;
-    width: 75vw;
-  }
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    color: #FFFFFF;
 
 }
 
+.submit-btn:hover,
+.submit-btn:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.submit-btn:active {
+    opacity: .5;
+}
+
+
+.slider-btn {
+    /* background: inherit; */
+    background:none;
+    border: 3px solid white;
+    border-radius: 2rem;
+    color: white;
+}
+
+.slider-btn:hover,
+.slider-btn:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.slider-btn:active {
+    opacity: .5;
+}
+
+
+
+@media screen and (max-width:800px) {
+
+    .main {
+        height: 80vh;
+        width: 80vw;
+
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .slider{
+        height: 50%;
+        width: 100%; 
+    }
+
+    
+
+    .slider-right{
+        transform: translate(-50%, -0%);
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .slider-left{
+        transform: translate(-50%, -100%);
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    form{
+        width: 100%;
+    }
+
+}

@@ -8,16 +8,6 @@ function Login() {
 
     const { loginUser } = useUser();
 
-    // from type variables
-    const [formType, setFormType] = useState("login");
-
-
-
-    const handleFormType = () => {
-        setFormType(formType === "login" ? "register" : "login");
-        console.log(formType);
-        setError({ isError: false, errorMessage: [] })
-    }
 
 
     const [error, setError] = useState({
@@ -71,7 +61,6 @@ function Login() {
             .then(response => {
                 console.log(response);
                 alert("Sign up successfully!");
-                handleFormType();
             })
             .catch(error => {
                 console.log(error);
@@ -80,66 +69,81 @@ function Login() {
             );
     }
 
+    const [slider, setSlider] = useState(true);
+
+    const handleSlider = () => {
+        setSlider(!slider)
+        setError({ isError: false, errorMessage: [] });
+    }
 
 
     return (
-        <main>
-            {formType === "login"
-                // LOGIN PAGE
-                ?
-                <>
-                    <div className="text-container">
-                        <h1>Welcome</h1>
-                        <p>Let's login your account!</p>
+        // main
+        <main className="main">
+            {/* slider */}
+            <div className={slider ? "slider-left slider" : "slider-right slider"}>
+
+                <h1>{slider ? "WELCOME!" : "HELLO :)"}</h1>
+
+                <p>
+                    {slider ? "If you have an account, let's login!" : "If you have not an account, let's create an account for you."}
+
+                </p>
+
+                <button className="slider-btn btn" onClick={(e) => handleSlider()}>
+                    {slider ? "Login >" : "< Register "}
+                </button>
+
+            </div>
+
+            {/* login */}
+            <div className="box login-box">
+
+
+                <h1>LOGIN</h1>
+
+                <form onSubmit={(e) => loginSubmit(e)}>
+                    <input placeholder="Email" type="Email" name="email" value={loginForm.email} onChange={(e) => handleLoginOnChange(e)}></input>
+                    <input placeholder="Password" type="Password" name="password" value={loginForm.password} onChange={(e) => handleLoginOnChange(e)}></input>
+                    <div >
+
+                        {
+                            error.isError && error.errorMessage.map((message) => {
+                                return <p className="error-message">{message}</p>
+                            })
+                        }
+
                     </div>
 
-                    <form onSubmit={(e) => loginSubmit(e)}>
-                        <input placeholder="Email" type="Email" name="email" value={loginForm.email} onChange={(e) => handleLoginOnChange(e)}></input>
-                        <input placeholder="Password" type="Password" name="password" value={loginForm.password} onChange={(e) => handleLoginOnChange(e)}></input>
-                        <div >
-                            <div className="change-form-text">
-                                <p>If you do not have an account</p>
-                                <a onClick={handleFormType}>Sign Up</a>
-                            </div>
-                            {
-                                error.isError && error.errorMessage.map((message) => {
-                                    return <p className="error-message">{message}</p>
-                                })
-                            }
+                    <button className="submit-btn btn" type="submit">Sign In</button>
+                </form>
+            </div>
 
-                        </div>
+            {/* register */}
+            <div className="box register-box">
 
-                        <button type="submit">Sign In</button>
-                    </form>
-                </>
-                // REGISTER PAGE
-                :
-                <>
-                    <div className="text-container">
-                        <h1>Welcome</h1>
-                        <p>Let's create your account!</p>
+                <h1>REGISTER</h1>
+
+                <form onSubmit={(e) => registerSubmit(e)}>
+                    <input placeholder="Email" type="Email" name="email" onChange={(e) => handleRegsiterOnChange(e)}></input>
+                    <input placeholder="Password" type="Password" name="password" onChange={(e) => handleRegsiterOnChange(e)}></input>
+                    <input placeholder="Confirm Password" type="Password" name="confirmPassword" onChange={(e) => handleRegsiterOnChange(e)}></input>
+                    <div >
+
+                        {
+                            error.isError && error.errorMessage.map((message) => {
+                                return <p className="error-message">{message}</p>
+                            })
+                        }
+
                     </div>
+                    <button class="submit-btn btn" type="submit" >Sign Up</button>
 
-                    <form onSubmit={(e) => registerSubmit(e)}>
-                        <input placeholder="Email" type="Email" name="email" onChange={(e) => handleRegsiterOnChange(e)}></input>
-                        <input placeholder="Password" type="Password" name="password" onChange={(e) => handleRegsiterOnChange(e)}></input>
-                        <input placeholder="Confirm Password" type="Password" name="confirmPassword" onChange={(e) => handleRegsiterOnChange(e)}></input>
-                        <div >
-                            <div className="change-form-text">
-                                <p>If you already have an account</p>
-                                <a onClick={handleFormType}>Sign In</a>
-                            </div>
-                            {
-                                error.isError && error.errorMessage.map((message) => {
-                                    return <p className="error-message">{message}</p>
-                                })
-                            }
+                </form>
+            </div>
 
-                        </div>
-                        <button type="submit" disabled={false}>Sign Up</button>
-                    </form>
-                </>
-            }
+
+
         </main>
 
 

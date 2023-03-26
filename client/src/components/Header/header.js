@@ -20,7 +20,7 @@ function Header() {
                         <a>Go Source Code</a>
                     </div>
 
-                    <a className="logout-a" onClick={(e) => logoutUser()}>Logout {user.email}</a >
+                    <button className="logout-btn btn" onClick={(e) => {logoutUser(); window.location.replace('/login');}}>Logout</button >
 
                 </>
 
@@ -33,7 +33,7 @@ function Header() {
                         <a>Go Source Code</a>
                     </div>
 
-                    <a className="login-a" href="/login">Login</a>
+                    <button className="login-btn btn" onClick={(e) => {window.location.replace('/login')}} href="/login">Login</button>
                 </>
             }
 

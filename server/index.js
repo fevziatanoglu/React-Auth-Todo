@@ -2,8 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const userRouter = require("./routers/userRouter"); 
+const todoRouter = require("./routers/todoRouter");
 
 const app = express();
 // accept json type
@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGODB_URL, { useUnifiedTopology: true, useNewUrlP
     .then(response => console.log("CONNECTED MONGODB"))
     .catch(error => console.log("MONGO CONNECT ERROR" + error));
 
-
+// users functions
 app.use("/users" , userRouter);
+// todo functions
+app.use("/todos" , todoRouter);
 

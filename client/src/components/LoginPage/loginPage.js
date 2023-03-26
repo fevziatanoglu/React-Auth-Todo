@@ -5,10 +5,8 @@ import { login, register } from "../../axios";
 import { useUser } from "../../contexts/userContext";
 
 function Login() {
-
+    
     const { loginUser } = useUser();
-
-
 
     const [error, setError] = useState({
         isError: true,
@@ -69,7 +67,8 @@ function Login() {
             );
     }
 
-    const [slider, setSlider] = useState(true);
+    // slider
+    const [slider, setSlider] = useState(false);
 
     const handleSlider = () => {
         setSlider(!slider)

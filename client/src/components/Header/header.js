@@ -15,8 +15,8 @@ function Header() {
                 // user navbar
                 <>
                     <div className="nav-content-container">
-                        <a>Todos</a>
-                        <a>Profile</a>
+                        <a href="todopage">Todos</a>
+                        <a href="login">Profile</a>
                         <a>Go Source Code</a>
                     </div>
 

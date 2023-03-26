@@ -17,10 +17,10 @@ export async function addTodo(formData){
     return await HTTP.post("/todos/add" , formData);
 }
 
-export async function getTodo(formData){
-    return await HTTP.post("/todos/get" , formData);
+export async function getTodos(userid){
+    return await HTTP.get(`/todos/get/${userid}`);
 }
 
 export async function removeTodo(formData){
-    return await HTTP.post("/todos/remove" , formData);
+    return await HTTP.post(`/todos/delete${formData}` , formData);
 }

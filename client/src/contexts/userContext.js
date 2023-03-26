@@ -12,7 +12,6 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem('user', JSON.stringify(userData));
     }
 
-
     const logoutUser = () => {
         setUser(null);
         localStorage.removeItem('user');

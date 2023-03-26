@@ -35,11 +35,11 @@ router.post("/add", async (req, res) => {
 })
 
 
-router.get("/get", async (req, res) => {
+router.get("/get/:user", async (req, res) => {
 
     try {
-
-        const { user } = req.body;
+        console.log(req.params)
+        const { user } = req.params;
 
         const todos = await Todo.find({ user });
 

@@ -22,5 +22,9 @@ export async function getTodos(userid){
 }
 
 export async function removeTodo(formData){
-    return await HTTP.post(`/todos/delete${formData}` , formData);
+    return await HTTP.delete(`/todos/delete/${formData}`);
+}
+
+export async function checkTodo(formData){
+    return await HTTP.put(`/todos/check/${formData}`);
 }

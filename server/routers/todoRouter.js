@@ -5,15 +5,13 @@ const Todo = require("../models/todoModel.js");
 const User = require("../models/userModel.js");
 
 
-router.post("/get", async (req, res) => {
-    console.log("test");
-})
-
+// ======================================= ADD =================================
 router.post("/add", async (req, res) => {
 
     try {
         // get variables from req
         const { user, text } = req.body;
+        console.log(req.body);
 
         const isUserExist = await User.findOne({ _id: user })
 
@@ -34,11 +32,11 @@ router.post("/add", async (req, res) => {
     }
 })
 
-
+// ======================================= GET =================================
 router.get("/get/:user", async (req, res) => {
 
     try {
-        console.log(req.params)
+        // console.log(req.params)
         const { user } = req.params;
 
         const todos = await Todo.find({ user });
@@ -52,19 +50,19 @@ router.get("/get/:user", async (req, res) => {
 
 })
 
-
+// ======================================= REMOVE =================================
 router.delete("/delete/:id", async (req, res) => {
 
-    
+
 
     try {
-
         const todoId = req.params.id;
+        console.log(req.params);
 
-        if (!(await Todo.findOne({ _id: todoId }))) {
-            
-            return res.status(404).json({ message: "Todo not found!",});
-        }
+        // if (!(await Todo.findOne({ _id: todoId }))) {
+
+        //     return res.status(404).json({ message: "Todo not found!",});
+        // }
 
         const deletedTodo = await Todo.deleteOne({ _id: todoId });
 
@@ -73,9 +71,33 @@ router.delete("/delete/:id", async (req, res) => {
     } catch (error) {
         return res.status(400).json({ message: "Unexpected error!", error });
     }
-
-
 });
 
+
+// ======================================= CHECK =================================
+
+router.put("/check/:id", async (req, res) => {
+
+
+
+    try {
+        const id = req.params.id;
+
+        const todo = await Todo.findOne({ _id: id });
+
+        const newTodo = await Todo.findOneAndUpdate({ _id: id }, { isChecked: !todo.isChecked });
+        return res.status(200).json({ newTodo });
+
+        // const newTodo = await Todo.findOneAndUpdateOne({ _id: id } , { isChecked: false });
+
+        // return res.status(200).json({ message: "Todo updated successfully!", newTodo });
+
+
+    } catch (error) {
+        return res.status(400).json({ message: "Unexpected error mk!", error });
+    }
+
+
+})
 
 module.exports = router;

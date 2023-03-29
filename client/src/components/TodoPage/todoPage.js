@@ -38,9 +38,9 @@ function TodoPage() {
     const handleCheckTodo = (todo) => {
         checkTodo(todo._id).then(response => {
             console.log(response)
-            setTodos(todos.map(todoMap =>{
-                if(todoMap._id === todo._id){
-                    return ({...todoMap, isChecked : !todoMap.isChecked})
+            setTodos(todos.map(todoMap => {
+                if (todoMap._id === todo._id) {
+                    return ({ ...todoMap, isChecked: !todoMap.isChecked })
                 }
             }));
         }).catch(error => console.log(error))
@@ -54,23 +54,25 @@ function TodoPage() {
 
     // if user login , show this page
     if (user) {
-        return (<div>
+        return (<main className="todo-page">
 
-            <form onSubmit={() => addTodo(todoForm).then(response => console.log(response).catch(error => console.log(error)))}>
+            <form className="todo-form" onSubmit={() => addTodo(todoForm).then(response => console.log(response).catch(error => console.log(error)))}>
                 <input onChange={(e) => { console.log(todoForm); setTodoForm({ ...todoForm, text: e.target.value }) }}></input>
-                <button type="submit">add</button>
+                <button type="submit" className="btn add-btn">ADD</button>
             </form>
-
+            {/* TODOS!!! */}
             {todos.map(todo => {
-                return <div className={`${todo.isChecked ? "red" : ""}`}>
+                return <div className={`todo-item ${todo.isChecked ? "todo-checked" : ""}`}>
                     {todo.text}
-                    {todo.isChecked ? <div>true</div> : <div>false</div> }
-                    <button onClick={(e) => { handleRemoveTodo(todo._id); }}>x</button>
-                    <button onClick={(e) => { handleCheckTodo(todo); }}>ok</button>
+                    <div>
+                        <button className="btn delete-btn" onClick={(e) => { handleRemoveTodo(todo._id); }}>x</button>
+                        <button className="btn check-btn" onClick={(e) => { handleCheckTodo(todo); }}>o</button>
+                    </div>
+
                 </div>
             })}
 
-        </div>)
+        </main>)
     }
 
 

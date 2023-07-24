@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header/header';
+import Header from './components/header';
 import Login from './components/LoginPage/loginPage';
 import { UserProvider } from './contexts/userContext';
 import { BrowserRouter, Routes, Route } from "react-router-dom"

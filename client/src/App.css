@@ -176,6 +176,55 @@ input {
 }
 
 
+/* ========================== toggle button ========================== */
+.toggle-button {
+    background: yellow;
+    height: 30px;
+    width: 70px;
+    border-radius: 2rem;
+    display: relative;
+  
+    color: black;
+  
+    box-shadow: .1px .1px 5px white;
+  }
+  
+  .toggle-button:hover {
+    cursor: pointer;
+  }
+  
+  .toggle-dot {
+    z-index: 1;
+    transition: .5s;
+    position: absolute;
+    background: white;
+    border-radius: 2rem;
+    height: 30px;
+    width: 40px;
+  }
+  
+  .toggle-icon {
+    transition: .5s;
+    border-radius: 2rem;
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    transform: translateX(80%);
+  
+  }
+  
+  .toggle-icon-active {
+    transform: translateX(0%);
+  }
+  
+  .toggle-dot-active {
+    transform: translateX(80%);
+  }
+  
+  /* ========================== toggle button ========================== */
+  
+  
+
 
 @media screen and (max-width:800px) {
 

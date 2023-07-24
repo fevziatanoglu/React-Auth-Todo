@@ -3,7 +3,7 @@ import Header from './components/header';
 import Login from './components/loginPage';
 import { UserProvider } from './contexts/userContext';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import TodoPage from './components/TodoPage/todoPage';
+import TodoPage from './components/todoPage';
 
 
 function App() {

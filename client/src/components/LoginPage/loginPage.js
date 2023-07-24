@@ -1,4 +1,4 @@
-import "./loginPage.css";
+    import "./loginPage.css";
 
 import { useState } from "react";
 import { login, register } from "../../axios";
@@ -78,7 +78,7 @@ function Login() {
 
     return (
         // main
-        <main className="main">
+        <main className="main bg-red-500">
             {/* slider */}
             <div className={slider ? "slider-left slider" : "slider-right slider"}>
 

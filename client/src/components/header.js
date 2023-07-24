@@ -17,9 +17,9 @@ function Header() {
     return (
 
 
-        <header className="w-full mx-auto p-2 fixed top-0 z-10  bg-white">
+        <header className="w-full mx-auto p-2 sticky top-0 z-10   bg-white">
             {/* navbar container */}
-            <div className="flex justify-between items-center w-full px-2">
+            <div className=" flex items-center justify-between  px-2">
 
 
 
@@ -31,7 +31,7 @@ function Header() {
                 </div>
 
                 {user
-
+                    // user navbar
                     ?
                     <>
                         {/*dropdown menu button */}
@@ -70,7 +70,7 @@ function Header() {
 
                     </>
 
-                    : <a href="/login" className="text-white bg-green-700 hover:opacity-50 focus:outline-none focus:ring-4  font-bold rounded-full  px-5 py-2.5 text-center mr-2 mb-2  flex flex-row items-center gap-4">Login <BiLogIn size={25} /> </a>
+                    : <a href="/login" className=" text-white bg-green-700 hover:opacity-50 focus:outline-none focus:ring-4  font-bold rounded-full  px-5 py-2.5 text-center mr-2 mb-2  flex flex-row items-center gap-4">Login <BiLogIn size={25} /> </a>
                 }
 
 

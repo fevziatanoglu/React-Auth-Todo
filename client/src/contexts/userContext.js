@@ -1,4 +1,5 @@
 import { useContext, createContext, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const UserContext = createContext();
 
@@ -15,6 +16,7 @@ export const UserProvider = ({ children }) => {
     const logoutUser = () => {
         setUser(null);
         localStorage.removeItem('user');
+        return <Navigate to="login"></Navigate>
     }
 
     return <UserContext.Provider value={{ user, setUser, loginUser , logoutUser }}>{children}</UserContext.Provider>

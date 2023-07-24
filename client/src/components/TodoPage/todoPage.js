@@ -2,6 +2,7 @@ import "./todoPage.css"
 import { useUser } from "../../contexts/userContext";
 import { useEffect, useState } from "react";
 import { getTodos, addTodo, removeTodo, checkTodo } from "../../axios";
+import { Navigate } from "react-router-dom";
 
 function TodoPage() {
 
@@ -12,7 +13,7 @@ function TodoPage() {
     // todo form variables
     const [todoForm, setTodoForm] = useState({
         text: "",
-        user: user._id,
+        user: user?._id,
     })
 
     // Axios functions
@@ -53,7 +54,9 @@ function TodoPage() {
     }, [])
 
     // if user login , show this page
-    if (user) {
+    if (!user) {
+        return   <Navigate to="/login"></Navigate>
+    }
         return (<main className="todo-page">
 
             <form className="todo-form" onSubmit={() => addTodo(todoForm).then(response => console.log(response).catch(error => console.log(error)))}>
@@ -73,7 +76,7 @@ function TodoPage() {
             })}
 
         </main>)
-    }
+    
 
 
 }

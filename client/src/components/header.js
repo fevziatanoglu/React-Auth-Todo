@@ -48,7 +48,7 @@ function Header() {
                                 onClick={() => {
                                     logoutUser();
                                 }}
-                                class="text-white bg-red-700 hover:opacity-50 focus:outline-none focus:ring-4  font-bold rounded-full  px-5 py-2.5 text-center mr-2 mb-2  flex flex-row items-center gap-4">Logout <BiLogIn size={25} /> </button>
+                                className="text-white bg-red-700 hover:opacity-50 focus:outline-none focus:ring-4  font-bold rounded-full  px-5 py-2.5 text-center mr-2 mb-2  flex flex-row items-center gap-4">Logout <BiLogIn size={25} /> </button>
 
 
 
@@ -70,7 +70,7 @@ function Header() {
 
                     </>
 
-                    : <a href="/login" class="text-white bg-green-700 hover:opacity-50 focus:outline-none focus:ring-4  font-bold rounded-full  px-5 py-2.5 text-center mr-2 mb-2  flex flex-row items-center gap-4">Login <BiLogIn size={25} /> </a>
+                    : <a href="/login" className="text-white bg-green-700 hover:opacity-50 focus:outline-none focus:ring-4  font-bold rounded-full  px-5 py-2.5 text-center mr-2 mb-2  flex flex-row items-center gap-4">Login <BiLogIn size={25} /> </a>
                 }
 
 

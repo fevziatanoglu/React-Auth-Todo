@@ -1,8 +1,6 @@
-    import "./loginPage.css";
-
 import { useState } from "react";
-import { login, register } from "../../axios";
-import { useUser } from "../../contexts/userContext";
+import { login, register } from "../axios";
+import { useUser } from "../contexts/userContext";
 
 function Login() {
     
@@ -82,14 +80,14 @@ function Login() {
             {/* slider */}
             <div className={slider ? "slider-left slider" : "slider-right slider"}>
 
-                <h1>{slider ? "WELCOME!" : "HELLO :)"}</h1>
+                <h1 className="text-3xl font-extrabold">{slider ? "WELCOME!" : "HELLO :)"}</h1>
 
-                <p>
+                <p className="text-sm">
                     {slider ? "If you have an account, let's login!" : "If you have not an account, let's create an account for you."}
 
                 </p>
 
-                <button className="slider-btn btn" onClick={(e) => handleSlider()}>
+                <button className="text-lg font-extrabold slider-btn btn" onClick={(e) => handleSlider()}>
                     {slider ? "Login >" : "< Register "}
                 </button>
 
@@ -99,7 +97,7 @@ function Login() {
             <div className="box login-box">
 
 
-                <h1>LOGIN</h1>
+                <h1 className="text-3xl font-extrabold">LOGIN</h1>
 
                 <form onSubmit={(e) => loginSubmit(e)}>
                     <input placeholder="Email" type="Email" name="email" value={loginForm.email} onChange={(e) => handleLoginOnChange(e)}></input>
@@ -114,16 +112,17 @@ function Login() {
 
                     </div>
 
-                    <button className="submit-btn btn" type="submit">Sign In</button>
+                    <button className="submit-btn btn text-2xl" type="submit">Sign In</button>
                 </form>
             </div>
 
             {/* register */}
             <div className="box register-box">
 
-                <h1>REGISTER</h1>
+            <h1 className="text-3xl font-extrabold">Register</h1>
 
-                <form onSubmit={(e) => registerSubmit(e)}>
+
+                <form  onSubmit={(e) => registerSubmit(e)}>
                     <input placeholder="Email" type="Email" name="email" onChange={(e) => handleRegsiterOnChange(e)}></input>
                     <input placeholder="Password" type="Password" name="password" onChange={(e) => handleRegsiterOnChange(e)}></input>
                     <input placeholder="Confirm Password" type="Password" name="confirmPassword" onChange={(e) => handleRegsiterOnChange(e)}></input>
@@ -136,7 +135,7 @@ function Login() {
                         }
 
                     </div>
-                    <button class="submit-btn btn" type="submit" >Sign Up</button>
+                    <button className="submit-btn btn text-2xl" type="submit" >Sign Up</button>
 
                 </form>
             </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const HTTP = axios.create({
-    baseURL : "http://localhost:4000"
+    baseURL : "https://todo-service-dy56.onrender.com"
 })
 
 

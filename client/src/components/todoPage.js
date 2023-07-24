@@ -1,6 +1,6 @@
-import { useUser } from "../../contexts/userContext";
+import { useUser } from "../contexts/userContext";
 import { useEffect, useState } from "react";
-import { getTodos, addTodo, removeTodo, checkTodo } from "../../axios";
+import { getTodos, addTodo, removeTodo, checkTodo } from "../axios";
 
 import{ AiFillCheckCircle, AiFillDelete, AiOutlineCheck } from "react-icons/ai"
 

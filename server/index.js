@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 // Run server
-app.listen(process.env.PORT, () => { console.log("Server listening on port " + process.env.PORT) })
+app.listen(process.env.PORT || 5000, () => { console.log("Server listening on port " + process.env.PORT) })
 
 mongoose.set("strictQuery", false);
 // connect mongo

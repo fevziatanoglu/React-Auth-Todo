@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const jwt = require("jwt");
 const router = express.Router();
 
 const User = require("../models/userModel.js");
@@ -53,8 +54,11 @@ router.post("/login", async (req, res) => {
         if (!isPasswordCorrect) {
             return res.status(403).json({ message: "Wrong password." })
         }
+
+        const token = jwt.sign({email} , "secrettokenkey" , { expressIn:"1h"});
+
         //return message and user
-        return res.status(200).json({ message: "Login successful.", user });
+        return res.status(200).json({ message: "Login successful.", user , token });
 
     } catch (error) {
         return res.status(400).json({ message: "Unexpected error", error })
